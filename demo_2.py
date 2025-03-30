@@ -2,6 +2,9 @@ import random
 import math
 import matplotlib.pyplot as plt
 
+plt.rcParams["font.sans-serif"] = ["SimHei"]  # 使用黑体显示中文
+plt.rcParams["axes.unicode_minus"] = False    # 正常显示负号
+
 # ===== 全局可调参数 =====
 DESIRED_MEAN = 100
 DESIRED_STD = 25
@@ -238,7 +241,7 @@ def run_simulations_and_plot(rounds=1000):
     plt.xlabel("累计压力")
     plt.ylabel("次数")
     plt.title(f"{rounds} 次仿真累计压力分布")
-    plt.axvline(x=0, color='red', linestyle='dashed', linewidth=1, label="0 压力线")
+    plt.axvline(x=100, color='red', linestyle='dashed', linewidth=1, label="100 压力线")
     plt.legend()
     plt.tight_layout()
     plt.savefig("simulation_results.png")
