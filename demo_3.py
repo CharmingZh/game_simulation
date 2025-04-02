@@ -3,8 +3,8 @@ import math
 import statistics
 import matplotlib.pyplot as plt
 
-plt.rcParams["font.sans-serif"] = ["SimHei"]  # 使用黑体显示中文
-plt.rcParams["axes.unicode_minus"] = False  # 正常显示负号
+# plt.rcParams["font.sans-serif"] = ["SimHei"]  # 使用黑体显示中文
+plt.rcParams["axes.unicode_minus"] = False
 
 # ===== 全局可调参数 =====
 DESIRED_MEAN = 100
@@ -267,36 +267,36 @@ def run_simulations_and_plot(rounds=1000):
     print("已保存 simulation_results.png")
 
 
-def run_simulations_and_plot(rounds=1000):
-    results = []
-    for _ in range(rounds):
-        final_stress = run_single_day()  # 假设这个函数返回单次模拟的最终压力
-        results.append(final_stress)
-
-    # 这里统计均值、标准差等可选
-    import statistics
-    mean_stress = statistics.mean(results)
-    std_stress = statistics.pstdev(results)
-
-    # ========= 把这段原先的直方图替换为散点图 ========
-    plt.figure(figsize=(8,6))
-
-    # x轴：模拟的索引；y轴：最终压力
-    x_values = range(len(results))  # [0,1,2,...,rounds-1]
-    plt.scatter(x_values, results, alpha=0.7, s=10)
-
-    plt.xlabel("Simulation Index")
-    plt.ylabel("Final Stress")
-    plt.title(f"散点图示例: rounds={rounds}, mean={mean_stress:.2f}, std={std_stress:.2f}")
-
-    # 如果想突出一些参考线，比如设100为理想值，可以加一条红线
-    plt.axhline(y=100, color='red', linestyle='dashed', linewidth=1, label="基准压力=100")
-
-    plt.legend()
-    plt.tight_layout()
-    plt.savefig("simulation_scatter.png")
-    plt.show()
-    print("散点图已保存为 simulation_scatter.png")
+# def run_simulations_and_plot(rounds=1000):
+#     results = []
+#     for _ in range(rounds):
+#         final_stress = run_single_day()  # 假设这个函数返回单次模拟的最终压力
+#         results.append(final_stress)
+#
+#     # 这里统计均值、标准差等可选
+#     import statistics
+#     mean_stress = statistics.mean(results)
+#     std_stress = statistics.pstdev(results)
+#
+#     # ========= 把这段原先的直方图替换为散点图 ========
+#     plt.figure(figsize=(8,6))
+#
+#     # x轴：模拟的索引；y轴：最终压力
+#     x_values = range(len(results))  # [0,1,2,...,rounds-1]
+#     plt.scatter(x_values, results, alpha=0.7, s=10)
+#
+#     plt.xlabel("Simulation Index")
+#     plt.ylabel("Final Stress")
+#     plt.title(f"散点图示例: rounds={rounds}, mean={mean_stress:.2f}, std={std_stress:.2f}")
+#
+#     # 如果想突出一些参考线，比如设100为理想值，可以加一条红线
+#     plt.axhline(y=100, color='red', linestyle='dashed', linewidth=1, label="基准压力=100")
+#
+#     plt.legend()
+#     plt.tight_layout()
+#     plt.savefig("simulation_scatter.png")
+#     plt.show()
+#     print("散点图已保存为 simulation_scatter.png")
 
 
 

@@ -1,2 +1,11 @@
 # game_simulation
-数值系统仿真
+
+## Run?
+
+```bash
+/opt/homebrew/Caskroom/miniforge/base/envs/CVcource/bin/python /Users/charminzh/game_simulation/demo_4.py 
+```
+
+## Story
+
+
